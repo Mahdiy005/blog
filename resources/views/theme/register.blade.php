@@ -7,28 +7,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="#/" class="form-contact contact_form" action="contact_process.php" method="post"
+                    <form action="{{ route('register') }}" class="form-contact contact_form" method="post"
                         id="contactForm" novalidate="novalidate">
                         @csrf
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <input class="form-control border" name="name" id="name" type="text"
-                                        placeholder="Enter your name">
+                                    <x-input-text name="name" type="name" id="name" plc="Enter your name" />
+                                    <x-error-input record="name" />
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control border" name="email" id="email" type="email"
-                                        placeholder="Enter email address">
+                                    <x-input-text name="email" type="email" id="email" plc="Enter email address" />
+                                    <x-error-input record="name" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <input class="form-control border" name="password" id="name" type="password"
-                                        placeholder="Enter your password">
+                                    <x-input-text name="password" type="password" id="password" plc="Enter your password" />
+                                    <x-error-input record="name" />
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control border" name="password_confirmation" type="password"
-                                        placeholder="Enter your password confirmation">
+                                    <x-input-text name="password_confirmation" type="password" id="password_c" plc="Enter your password confirmation" />
+                                    <x-error-input record="name" />
                                 </div>
                             </div>
                         </div>
