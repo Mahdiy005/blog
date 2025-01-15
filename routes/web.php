@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
 use Psy\Output\Theme;
@@ -14,6 +15,9 @@ Route::controller(ThemeController::class)->name('theme.')->group(function () {
     // Route::get('/register', 'register')->name('register');
 });
 
+Route::controller(SubscribeController::class)->group(function () {
+    Route::post('subscribe/store', 'store')->name('subscribe.store');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
