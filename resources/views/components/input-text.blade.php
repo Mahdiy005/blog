@@ -1,3 +1,3 @@
-@props(['plc', 'name', 'value', 'id',  'type'])
+@props(['plc', 'name', 'value', 'id',  'type', 'value'])
 
-<input class="form-control border" name="{{ $name }}" id="{{ $id }}" type="{{ $type }}"  placeholder="{{ $plc }}">
+<input class="form-control border" name="{{ $name }}" id="{{ $id }}" type="{{ $type }}"  placeholder="{{ $plc }}" value="{{ $value }}">

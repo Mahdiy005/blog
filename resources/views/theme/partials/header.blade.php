@@ -41,7 +41,7 @@
 
                     <ul class="nav navbar-nav navbar-right navbar-social">
                         @guest
-                            <a href="{{ route('theme.register') }}" class="btn btn-sm btn-warning">Register / Login</a>
+                            <a href="{{ route('auth.register') }}" class="btn btn-sm btn-warning">Register / Login</a>
                         @endguest
 
                         @auth
@@ -51,15 +51,14 @@
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="blog-details.html">My Blogs</a></li>
                                     <li class="nav-item">
-                                        <form action="{{ route('logout') }}" method="post" >
+                                        <form id="logout-form" action="{{ route('logout') }}" method="post" >
                                             @csrf
-                                            <button type="submit" class="nav-link" style="border: none; background-color: transparent; display: block; width: fit-content">Logout</button>
+                                            <a id="anc-submit" type="submit" class="nav-link" style="cursor: pointer; " href="javascript:$('form').submit()">Logout</a>
                                         </form>
                                     </li>
                                 </ul>
                             </li>
                         @endauth
-
                     </ul>
                 </div>
             </div>

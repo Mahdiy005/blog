@@ -9,17 +9,15 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Middleware\IsLogged;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-        ->name('get_register');
+Route::middleware('isLogged')->name('auth.')->group(function () {
+    Route::get('register', [RegisteredUserController::class, 'create']);
 
-    Route::post('register', [RegisteredUserController::class, 'store'])
-        ->name('register');
-
+    Route::post('register', [RegisteredUserController::class, 'store']) ->name('register');
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->name('get_login');
+        ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login');
 
